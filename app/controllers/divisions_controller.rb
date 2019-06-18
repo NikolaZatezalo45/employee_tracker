@@ -10,6 +10,9 @@ class DivisionsController < ApplicationController
   end
 
   def update
+    @division=Division.find(params[:id])
+    @division.update(division_params)
+    redirect_to @division
   end
 
   def new
@@ -17,6 +20,7 @@ class DivisionsController < ApplicationController
   end
 
   def edit
+    @division=Division.find(params[:id])
   end
 
   def show
@@ -24,6 +28,9 @@ class DivisionsController < ApplicationController
   end
 
   def destroy
+    @division=Division.find(params[:id])
+    @division.destroy
+    redirect_to divisions_path
   end
 
   private
