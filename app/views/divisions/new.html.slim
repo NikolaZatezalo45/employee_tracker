@@ -1,0 +1,14 @@
+h1 New Division
+=form_with model: @division, local: true do |form|
+
+  p
+    = form.label :'division name'
+    = form.text_field :division_name
+
+  p
+    = form.submit
+
+  p
+    = link_to 'Back', divisions_path
+
+end
