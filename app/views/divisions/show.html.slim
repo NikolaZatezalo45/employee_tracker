@@ -6,9 +6,11 @@ br
   = link_to 'Back', divisions_path
 
 br
-h2 Employee Name(S)
+h2 Employee Name(s)
 -@division.employees.each do |employee|
-    =employee.employee_name
+    =>employee.employee_name
+
+    = link_to 'Delete', [employee.division,employee], method: :delete, data: { confirm: 'Are you sure?' }
     br
 
 = link_to 'New Employee', new_division_employee_path(@division)
