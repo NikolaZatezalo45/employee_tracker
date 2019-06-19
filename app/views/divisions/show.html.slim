@@ -1,7 +1,14 @@
-p
+h2
   = "Title : "
   = @division.division_name
 br
-  = link_to 'Edit', edit_division_path(@division)
-br
+  = link_to 'Edit/', edit_division_path(@division)
   = link_to 'Back', divisions_path
+
+br
+h2 Employee Name(S)
+-@division.employees.each do |employee|
+    =employee.employee_name
+    br
+
+= link_to 'New Employee', new_division_employee_path(@division)

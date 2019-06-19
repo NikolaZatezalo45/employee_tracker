@@ -25,6 +25,7 @@ class DivisionsController < ApplicationController
 
   def show
     @division = Division.find(params[:id])
+    @employees = @division.employees.all
   end
 
   def destroy
