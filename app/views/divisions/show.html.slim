@@ -2,15 +2,16 @@ h2
   = "Title : "
   = @division.division_name
 br
-  = link_to 'Edit/', edit_division_path(@division)
-  = link_to 'Back', divisions_path
+  = link_to 'Edit Division', edit_division_path(@division)
 
 br
 h2 Employee Name(s)
+= link_to 'New Employee', new_division_employee_path(@division)
+br
+br
 -@division.employees.each do |employee|
-    =>employee.employee_name
-
+    =>>employee.employee_name
     = link_to 'Delete', [employee.division,employee], method: :delete, data: { confirm: 'Are you sure?' }
     br
-
-= link_to 'New Employee', new_division_employee_path(@division)
+br
+= link_to 'Back', divisions_path

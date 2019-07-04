@@ -1,0 +1,3 @@
+class ProjectManagerUser < User
+
+end
