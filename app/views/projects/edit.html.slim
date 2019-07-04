@@ -1,0 +1,17 @@
+h1 Edit Project
+=form_with model: @project, local: true do |form|
+
+  p
+    = form.label :'project name'
+    = form.text_field :name
+  p
+    = form.label :'project Satus'
+    = form.select :status, options_for_select([['Active', true], ['Inactive', false]])
+
+  p
+    = form.submit
+
+  p
+    = link_to 'Back', projects_path
+
+end

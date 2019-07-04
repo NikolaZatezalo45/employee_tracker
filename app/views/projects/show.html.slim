@@ -1,0 +1,23 @@
+h2
+  = "Title : "
+  = @project.name
+h2
+  = "Status : "
+  -if @project.status
+    b Active
+  -else
+    b Inactive
+br
+  = link_to 'Edit Project', edit_project_path(@project)
+
+br
+h2  Add Employee
+
+=render 'new_employee'
+br
+-@project.employees.each do |employee|
+    =>>employee.employee_name
+    = link_to 'Delete', [employee.project,employee], method: :delete, data: { confirm: 'Are you sure?' }
+    br
+br
+= link_to 'Back', projects_path
