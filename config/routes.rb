@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  patch 'projects/:id' => 'projects#add', as: 'add'
   get 'welcome/index'
   resources :divisions do
     resources :employees
@@ -16,4 +15,5 @@ Rails.application.routes.draw do
   resources :projects do
     resources :employees
   end
+  post 'projects/:id/employees/:id' => 'projects#remove', as: 'remove_employee'
 end

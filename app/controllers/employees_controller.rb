@@ -31,6 +31,6 @@ end
 
 private
   def employee_params
-    params.require(:employee).permit(:employee_name,:division_id,:project_id)
+    params.require(:employee).permit(:employee_name,:division_id,project_id: 0)
   end
 end

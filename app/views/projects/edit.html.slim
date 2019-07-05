@@ -9,7 +9,7 @@ h1 Edit Project
     = form.select :status, options_for_select([['Active', true], ['Inactive', false]])
 
   p
-    = form.submit
+    = form.submit 'Save'
 
   p
     = link_to 'Back', projects_path

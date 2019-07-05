@@ -23,10 +23,17 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    @project = Project.find(params[:id])
-    @project.update(project_params)
-    redirect_to projects_path
-  end
+     if params[:commit]=="Save"
+     @project=Project.find(params[:id])
+     @project.update(project_params)
+     redirect_to @project
+    else
+     @project=Project.find(params[:id])
+     @employee=Employee.find(params[:project][:employee_id])
+     @employee.update(:project_id=>@project.id)
+     redirect_to @project
+    end
+   end
 
   def destroy
     @project = Project.find(params[:id])
@@ -34,12 +41,12 @@ class ProjectsController < ApplicationController
     redirect_to projects_path
   end
 
-  def add
-     @project=Project.find(params[:id])
-     @employee=Employee.find(params[:project][:employee_id])
-     @employee.update(:project_id=>@project.id)
-     redirect_to @project
-   end
+   def remove
+   @employee=Employee.find(params[:id])
+   @project=@employee.project
+   @employee.update(:project_id=>nil)
+   redirect_to @project
+  end
 
   private
   def project_params
