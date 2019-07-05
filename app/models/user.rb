@@ -8,4 +8,6 @@ class User < ApplicationRecord
     %w(HrManagerUser ProjectManagerUser)
   end
 
+  validates :email,:encrypted_password,:type, presence: true
+  validates_uniqueness_of :email
 end
